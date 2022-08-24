@@ -12,6 +12,13 @@ spec:
         name: bitnami
         namespace: flux-system
       version: "16.x"
+      values:
+        usePassword: true
+        valuesFrom:
+          - kind: Secret
+            name: redis-auth
+            valuesKey: password
+            targetPath: password
   interval: 1h0m0s
   install:
     remediation:
